@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UK Wind Power — Forecast Monitor</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@3.0.0/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <h1>UK Wind Power - Forecast Monitor</h1>
+      <p class="subtitle">National wind generation: actuals vs forecasts &mdash; January 2024</p>
+    </header>
+
+    <section class="controls">
+      <div class="control-group">
+        <label for="startTime">Start Time</label>
+        <input type="datetime-local" id="startTime"
+          value="2024-01-10T00:00"
+          min="2024-01-01T00:00" max="2024-01-31T23:30" />
+      </div>
+
+      <div class="control-group">
+        <label for="endTime">End Time</label>
+        <input type="datetime-local" id="endTime"
+          value="2024-01-11T00:00"
+          min="2024-01-01T00:00" max="2024-01-31T23:30" />
+      </div>
+
+      <div class="control-group slider-group">
+        <label for="horizonSlider">
+          Forecast Horizon: <strong id="horizonDisplay">4h</strong>
+        </label>
+        <input type="range" id="horizonSlider" min="0" max="48" step="1" value="4" />
+        <div class="slider-labels">
+          <span>0h</span><span>12h</span><span>24h</span><span>36h</span><span>48h</span>
+        </div>
+      </div>
+
+      <div class="control-group btn-group">
+        <button id="loadBtn">Load Data</button>
+      </div>
+    </section>
+
+    <div id="errorMsg" class="error-msg" style="display:none"></div>
+
+    <section class="chart-section">
+      <div class="chart-header">
+        <span class="chart-title">Wind Power Generation (MW)</span>
+        <div class="legend">
+          <span class="legend-item"><span class="dot actual"></span>Actual</span>
+          <span class="legend-item"><span class="dot forecast"></span>Forecast</span>
+        </div>
+      </div>
+      <div class="chart-wrap">
+        <canvas id="mainChart"></canvas>
+        <div id="chartPlaceholder" class="chart-placeholder">
+          Select a date range and click Load Data
+        </div>
+        <div id="loadingOverlay" class="loading-overlay" style="display:none">
+          Loading&hellip;
+        </div>
+      </div>
+      <p class="chart-note" id="chartNote" style="display:none"></p>
+    </section>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
