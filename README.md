@@ -6,6 +6,15 @@ The system visualises the accuracy of wind generation forecasts and analyses his
 
 ---
 
+# Live Demo
+
+Application URL:
+https://<your-deployment-link>
+
+The app can be used to select a time range in January 2024 and compare actual vs forecast wind generation using different forecast horizons.
+
+---
+
 # Project Overview
 
 This project consists of two components:
@@ -102,7 +111,7 @@ For each target time **T**, the application selects the **latest forecast publis
 
 Example:
 
-Target time: 24/05/2024 18:00
+Target time: 24/01/2024 18:00
 Forecast horizon: 4 hours
 
 The system selects the **latest forecast published before 14:00**.
@@ -131,7 +140,7 @@ pip install -r requirements.txt
 
 Run server
 
-uvicorn main:app --reload
+uvicorn backend.main:app --reload
 
 Backend runs on:
 
@@ -202,13 +211,4 @@ AI tools were used only for:
 
 All system design, forecast filtering logic, and analysis were implemented and interpreted manually.
 
----
 
-# Possible Future Improvements
-
-* Real-time streaming updates
-* Redis caching for API responses
-* Forecast error alerting system
-* Multi-day forecast comparison
-* Integration with weather datasets
-* Machine learning based wind forecasting models
