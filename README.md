@@ -8,8 +8,7 @@ The system visualises the accuracy of wind generation forecasts and analyses his
 
 # Live Demo
 
-Application URL:
-https://<your-deployment-link>
+Application URL: https://wind-forecast-production.up.railway.app
 
 The app can be used to select a time range in January 2024 and compare actual vs forecast wind generation using different forecast horizons.
 
