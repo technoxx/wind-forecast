@@ -14,11 +14,11 @@ app.add_middleware(
 )
 
 
-# serve frontend
-app.mount("/", StaticFiles(directory="frontend", html=True), name="frontend")
-
 app.include_router(actual_wind.router, prefix="/api")
 app.include_router(wind_forecast.router, prefix="/api")
+
+# serve frontend
+app.mount("/", StaticFiles(directory="frontend", html=True), name="frontend")
 
 @app.get("/health")
 async def health():
